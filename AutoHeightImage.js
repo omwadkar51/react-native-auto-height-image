@@ -13,16 +13,16 @@ import { NOOP, DEFAULT_HEIGHT } from './helpers';
 // remove `resizeMode` props from `Image.propTypes`
 const { resizeMode, ...ImagePropTypes } = AnimatableImage.propTypes;
 
-function AutoHeightImage(props) {
-  const {
-    onHeightChange,
-    source,
-    width,
-    style,
-    maxHeight,
-    onError,
-    ...rest
-  } = props;
+function AutoHeightImage({
+  source,
+  width,
+  style,
+  onError,
+  maxHeight = Infinity,
+  onHeightChange = NOOP,
+  animated = false,
+  ...rest
+}) {
   const [height, setHeight] = useState(
     getImageSizeFitWidthFromCache(source, width, maxHeight).height ||
       DEFAULT_HEIGHT
@@ -80,12 +80,6 @@ AutoHeightImage.propTypes = {
   maxHeight: PropTypes.number,
   onHeightChange: PropTypes.func,
   animated: PropTypes.bool
-};
-
-AutoHeightImage.defaultProps = {
-  maxHeight: Infinity,
-  onHeightChange: NOOP,
-  animated: false
 };
 
 export default AutoHeightImage;

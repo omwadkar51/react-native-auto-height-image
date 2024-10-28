@@ -16,8 +16,4 @@ function AnimatableImage(props) {
 
 AnimatableImage.propTypes = Image.propTypes | Animated.Image.propTypes;
 
-AnimatableImage.defaultProps = {
-  animated: false
-};
-
 export default AnimatableImage;

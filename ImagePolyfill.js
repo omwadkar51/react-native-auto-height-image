@@ -28,6 +28,5 @@ function ImagePolyfill(props) {
 }
 
 ImagePolyfill.propTypes = AnimatableImage.propTypes;
-ImagePolyfill.defaultProps = AnimatableImage.defaultProps;
 
 export default ImagePolyfill;
